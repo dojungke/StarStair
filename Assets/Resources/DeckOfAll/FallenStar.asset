@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf9046de838c744418d17dace48d5179, type: 3}
+  m_Name: FallenStar
+  m_EditorClassIdentifier: 
+  Name: "\uBCC4\uB625\uBCC4"
+  Description: "\uD328\uC5D0 \uC788\uB294 \uBAA8\uB4E0 \uC78E\uB97C \uBC84\uB9AC\uACE0
+    \uBC84\uB9B0 \uC78E \uAC2F\uC218 * [Value0] \uB9CC\uD07C\uC758 \uD53C\uD574\uB97C
+    \uBAA8\uB4E0 \uC801\uC5D0 \uC785\uD78C\uB2E4. \uAC15\uD654\uC2DC\uC804\uC2DC
+    \uD53C\uD574\uB7C9\uC774 [Value1] \uB85C \uC99D\uAC00\uD55C\uB2E4."
+  Rare: 2
+  Image: {fileID: 3981718088025546237, guid: 7868acec7a46cfe4392470a86b88649e, type: 3}
+  timeCost: 1
+  cardColor:
+  - R
+  coolTime: 0
+  ActiveType: NonTarget
+  relatedEffect: []
+  AbilityScript: CardFallenStar
+  AbilityList:
+  - cardInfo: Card
+    AbilityType: Attack
+    Target: 1
+    Content: Attack
+    Value: 7
+  - cardInfo: Card
+    AbilityType: Attack
+    Target: 1
+    Content: Attack
+    Value: 11

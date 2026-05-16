@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf9046de838c744418d17dace48d5179, type: 3}
+  m_Name: TaleOfLight
+  m_EditorClassIdentifier: 
+  Name: "\uBE5B \uC774\uC57C\uAE30"
+  Description: "\uC774 \uC774\uB984\uC758 \uC78E\uC744 2\uBC88 \uC0AC\uC6A9\uD558\uBA74
+    [Value0]\uC758 \uBCF4\uD638\uB9C9\uB97C \uC5BB\uC2B5\uB2C8\uB2E4."
+  Rare: 1
+  Image: {fileID: 3861630512650180796, guid: 8c31efc0485ec5d43b7c607cf9ace20c, type: 3}
+  timeCost: 2
+  cardColor:
+  - R
+  coolTime: 3
+  ActiveType: NonTarget
+  relatedEffect: []
+  AbilityScript: CardNomal
+  AbilityList:
+  - cardInfo: Card
+    AbilityType: GetManaGuard
+    Target: 2
+    Content: ManaGuard
+    Value: 20

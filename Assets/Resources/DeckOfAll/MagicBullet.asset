@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf9046de838c744418d17dace48d5179, type: 3}
+  m_Name: MagicBullet
+  m_EditorClassIdentifier: 
+  Name: "\uB9C8\uBC95 \uCD1D\uC54C"
+  Description: "[Value0]\uC758 \uD53C\uD574\uB97C \uC90C\uB2C8\uB2E4."
+  Rare: 0
+  Image: {fileID: 4674248852842106323, guid: 5d61f9584e0eca94a943fd0be7c59da7, type: 3}
+  timeCost: 1
+  cardColor:
+  - R
+  coolTime: 2
+  ActiveType: Target
+  relatedEffect: []
+  AbilityScript: CardNomal
+  AbilityList:
+  - cardInfo: Card
+    AbilityType: Attack
+    Target: 0
+    Content: Attack
+    Value: 7

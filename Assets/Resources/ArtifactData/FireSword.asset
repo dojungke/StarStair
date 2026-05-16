@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f545995a75ac3c94a806924576f26922, type: 3}
+  m_Name: FireSword
+  m_EditorClassIdentifier: 
+  Name: "\uBD88\uD0C0\uB294 \uAC80"
+  Description: "\uBE68\uAC15 \uC78E\uC73C\uB85C \uC785\uD78C \uD53C\uD574\uB9CC\uD07C
+    \uD654\uC0C1\uC744 \uBD80\uC5EC\uD55C\uB2E4."
+  Rarity: 2
+  Image: {fileID: -8262534425414574923, guid: dc3c55d9dbc9e68408b0302a2506c6c6, type: 3}
+  Size: 1
+  Prize: 150
