@@ -23,13 +23,16 @@ public class BattleManager : MonoBehaviour
     {
         unit.TurnStart();
     }
-    public IEnumerator TimeStop() 
+    public void NextTurn()
     {
-        while (Time.timeScale > 0) 
+        foreach (Unit unit in UnitList)
         {
-            Time.timeScale -= 0.1f;
-            yield return new WaitForSecondsRealtime(0.05f);
+            TurnSet(unit);
         }
+    }
+    public void TimeStop() 
+    {
+        Time.timeScale = 0f;
     }
     public void TimeFlow() 
     {

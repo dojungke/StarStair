@@ -24,6 +24,8 @@ public class StairHandManager : MonoBehaviour
     }
     public void HandSetting(PlayerUnit unit)
     {
+        HandReset();
+        BattleManager.Instance.TimeStop();
         caller = unit;
         foreach(var stair in unit.stairHand) 
         {
@@ -43,6 +45,7 @@ public class StairHandManager : MonoBehaviour
     }
     public void StairSellected(string stair) 
     {
+        BattleManager.Instance.TimeFlow();
         HandReset();
         Stair newStair = new Stair();
         newStair.stairName = stair;

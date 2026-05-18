@@ -13,8 +13,7 @@ public class Stair
     public int nowStep;
     public void ascend()
     {
-        Debug.Log(steps[0].content);
-        Debug.Log(steps[1].content);
+        Debug.Log($"{steps[nowStep].content}, {unit.name}");
         steps[nowStep].ascend();
         if (nowStep >= steps.Count) //계단 종료
         {

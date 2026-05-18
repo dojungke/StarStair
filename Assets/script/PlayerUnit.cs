@@ -22,7 +22,6 @@ public class PlayerUnit : Unit
                 nowStair.ascend();
                 quickMoveCount -= 10;
             }
-            //TurnStart();
         }
     }
     public override void StairSelect()
@@ -56,6 +55,7 @@ public class PlayerUnit : Unit
 }
 public abstract class Unit : MonoBehaviour
 {
+    public int team = 1;
     public int maxHP; //체력: 수치*10 만큼 최대체력 제공
     public int STRength; //근력: 수치*10% 만큼 피해량 제공
     public int DEXterity; //민첩: 턴마다 수치*0.1 만큼 추가 행동 제공

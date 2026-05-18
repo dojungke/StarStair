@@ -7,6 +7,6 @@ public class AttackStep : Step
     {
         unitRigidbody = stair.unit.GetComponent<Rigidbody2D>();
         stair.nowStep += 1;
-        unitRigidbody.AddForce(new Vector2(1000, 50));
+        unitRigidbody.AddForce(new Vector2(1000 * stair.unit.team, 50));
     }
 }
