@@ -79,9 +79,12 @@ public abstract class Unit : MonoBehaviour
     public float hp; //현제체력
     public int quickMoveCount = 0;
     public Stair nowStair = null;
+    public HpBar hpBar;
     private void Awake()
     {
-        hp = maxHP * 10;
+        hp = maxHP;
+        hpBar.unit = this;
+        hpBar.HpBarSetting();
     }
     public virtual void TurnStart()
     {
@@ -103,5 +106,6 @@ public abstract class Unit : MonoBehaviour
     public void Hit(float damage) 
     {
         hp -= damage;
+        hpBar.HpBarSetting();
     }
 }

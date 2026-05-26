@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -13,6 +14,7 @@ public class StairHandManager : MonoBehaviour
     public PlayerUnit caller;
     public Unit target;
     public string selectedStair = "";
+    public TextMeshProUGUI targetSelectAnounceText;
     private GameObject targetMaker;
     void Awake()
     {
@@ -51,6 +53,7 @@ public class StairHandManager : MonoBehaviour
     {
         selectedStair = stair;
         HandReset();
+        targetSelectAnounceText.gameObject.SetActive(true);
     }
     public void TargetSelect(Unit unit) 
     {
@@ -83,5 +86,6 @@ public class StairHandManager : MonoBehaviour
         selectedStair = "";
         Destroy(targetMaker);
         target = null;
+        targetSelectAnounceText.gameObject.SetActive(false);
     }
 }
