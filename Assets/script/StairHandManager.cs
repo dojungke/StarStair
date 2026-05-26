@@ -8,8 +8,12 @@ public class StairHandManager : MonoBehaviour
 {
     public static StairHandManager Instance { get; private set; }
     public GameObject stairButton;
+    public GameObject targetMakerPrefab;
     public List<StairButton> stairButtons = new List<StairButton>();
-    public Unit caller;
+    public PlayerUnit caller;
+    public Unit target;
+    public string selectedStair = "";
+    private GameObject targetMaker;
     void Awake()
     {
         if (Instance == null)
@@ -43,15 +47,41 @@ public class StairHandManager : MonoBehaviour
         }
         stairButtons.Clear();
     }
-    public void StairSellected(string stair) 
+    public void StairSelect(string stair) 
     {
+        selectedStair = stair;
+        HandReset();
+    }
+    public void TargetSelect(Unit unit) 
+    {
+        if (selectedStair == "")
+        {
+            Debug.Log("지정된 사다리 없음");
+            return;
+        }
+        target = unit;
+        targetMaker = Instantiate(targetMakerPrefab, target.transform);
+    }
+    public void StairSellected() 
+    {
+        if (selectedStair == "") 
+        { 
+            Debug.Log("지정된 사다리 없음");
+            return;
+        }
+        Debug.Log(selectedStair);
         BattleManager.Instance.TimeFlow();
         HandReset();
         Stair newStair = new Stair();
-        newStair.stairName = stair;
+        newStair.stairName = selectedStair;
+        newStair.target = target;
         newStair.stepSetting();
         newStair.unit = caller;
         caller.nowStair = newStair;
-        newStair.ascend();
+        caller.StartCoroutine(caller.Walk());
+        caller.stairDeck.Remove(selectedStair);
+        selectedStair = "";
+        Destroy(targetMaker);
+        target = null;
     }
 }

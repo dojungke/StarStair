@@ -1,17 +1,24 @@
+using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Timeline.Actions;
 using UnityEngine;
 
 public class PlayerUnit : Unit
 {
+    public List<string> stairDeck = new List<string>();
     public List<string> stairHand = new List<string>();
     public List<string> usedStair = new List<string>();
     public List<string> unUsedStair = new List<string>();
     public override void TurnStart()
     {
         base.TurnStart();
+        HandDrow();
+        StartCoroutine(Walk());
+    }
+    public IEnumerator Walk() 
+    {
         if (nowStair == null)
         {
-            HandDrow();
             StairSelect();
         }
         else
@@ -19,11 +26,20 @@ public class PlayerUnit : Unit
             nowStair.ascend();
             while (quickMoveCount >= 10)
             {
-                nowStair.ascend();
                 quickMoveCount -= 10;
+                if (nowStair == null) { StairSelect(); break; }
+                nowStair.ascend();
+                BattleManager.Instance.StartCoroutine(BattleManager.Instance.TimeAction(1));
+                yield return new WaitForSeconds(1f);
             }
         }
     }
+
+    private object WaitForSeconds(float v)
+    {
+        throw new System.NotImplementedException();
+    }
+
     public override void StairSelect()
     {
         BattleManager.Instance.TimeStop();
@@ -72,4 +88,20 @@ public abstract class Unit : MonoBehaviour
         quickMoveCount += DEXterity; //임시로 그냥 10넘으면 10깍고 행동하게 해놈 나중에 버프 형태로 수정
     }
     public abstract void StairSelect();
+    private void OnMouseDown()
+    {
+        if (StairHandManager.Instance.target == this)
+        {
+            StairHandManager.Instance.StairSellected();
+        }
+        StairHandManager.Instance.TargetSelect(this);
+        if (GameManager.Instance.quickBattle) 
+        {
+            StairHandManager.Instance.StairSellected();
+        }
+    }
+    public void Hit(float damage) 
+    {
+        hp -= damage;
+    }
 }

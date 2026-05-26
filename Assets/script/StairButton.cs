@@ -19,6 +19,6 @@ public class StairButton : MonoBehaviour
     }
     public void clicked() 
     {
-        StairHandManager.Instance.StairSellected(stairName);
+        StairHandManager.Instance.StairSelect(stairName);
     }
 }

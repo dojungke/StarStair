@@ -11,9 +11,10 @@ public class Stair
     public Unit unit;
     public List<Step> steps = new List<Step>();
     public int nowStep;
+    public Unit target;
     public void ascend()
     {
-        Debug.Log($"{steps[nowStep].content}, {unit.name}");
+        Debug.Log($"{steps[nowStep].content.stepName}, {unit.name} -> {target.name}");
         steps[nowStep].ascend();
         if (nowStep >= steps.Count) //계단 종료
         {
@@ -26,9 +27,9 @@ public class Stair
     public void stepSetting() 
     {
         data = (StairData)Resources.Load($"StairData/{stairName}");
-        foreach (string step in data.steps) 
+        foreach (StepInfo step in data.StepInfo) 
         {
-            Type stepType = Type.GetType(step.Split("/")[0]);
+            Type stepType = Type.GetType("Step");
             Step newStep = (Step)Activator.CreateInstance(stepType);
             newStep.stair = this;
             newStep.content = step;

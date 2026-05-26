@@ -11,6 +11,7 @@ public class Enemy2Li : Unit
         newStair.stepSetting();
         newStair.unit = this;
         nowStair = newStair;
+        newStair.target = BattleManager.Instance.PlayerUnitList[0];
         newStair.ascend();
     }
     public override void TurnStart()
