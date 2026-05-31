@@ -41,10 +41,6 @@ public class Step
 
         switch (contents[0])
         {
-            case "None":
-                stair.unit.bonusActionCount++;
-                break;
-
             case "STR":
                 if (stair.unit.STRength > int.Parse(contents[1]))
                     stair.unit.bonusActionCount++;

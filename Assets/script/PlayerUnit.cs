@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Timeline.Actions;
 using UnityEngine;
 
 public class PlayerUnit : Unit
@@ -22,7 +21,7 @@ public class PlayerUnit : Unit
     }
     public void HandDrow()
     {
-        while(stairHand.Count < INTelligence / 2) 
+        while (stairHand.Count < INTelligence / 2)
         {
             int unUsedStairCount = unUsedStair.Count;
             if (unUsedStairCount > 0) { stairHand.Add(unUsedStair[Random.Range(0, unUsedStairCount)]); }
@@ -65,7 +64,7 @@ public abstract class Unit : MonoBehaviour
     }
     public virtual void TurnStart()
     {
-        quickMoveCount += DEXterity-10; //임시로 그냥 10넘으면 10깍고 행동하게 해놈 나중에 버프 형태로 수정
+        quickMoveCount += DEXterity - 10; //임시로 그냥 10넘으면 10깍고 행동하게 해놈 나중에 버프 형태로 수정
     }
     public abstract void StairSelect();
     public virtual IEnumerator Walk()
@@ -77,28 +76,30 @@ public abstract class Unit : MonoBehaviour
         else
         {
             nowStair.ascend();
-            if (quickMoveCount >= 10)
+            yield return new WaitForSeconds(1f);
+            if (quickMoveCount >= 10 || bonusActionCount > 0)
             {
                 BattleManager.Instance.TimeAction(1);
-                while (quickMoveCount >= 10)
+                while (quickMoveCount >= 10 || bonusActionCount > 0)
                 {
                     if (nowStair == null)
                     {
                         StairSelect();
                     }
-                    yield return new WaitForSeconds(1f);
-                    quickMoveCount -= 10;
+                    if (quickMoveCount >= 10) quickMoveCount -= 10;
+                    else if (bonusActionCount > 0) bonusActionCount -= 1;
                     if (nowStair == null) { StairSelect(); break; }
                     nowStair.ascend();
+                    yield return new WaitForSeconds(1f);
                 }
                 BattleManager.Instance.TimeAction(-1);
             }
         }
     }
-    public virtual void StairEnd() 
+    public virtual void StairEnd()
     {
         StairInfoButton.gameObject.SetActive(false);
-        if(quickMoveCount >= 10) { StairSelect(); }
+        if (quickMoveCount >= 10 || bonusActionCount>0) { StairSelect(); }
     }
     private void OnMouseDown()
     {
@@ -107,12 +108,12 @@ public abstract class Unit : MonoBehaviour
             StairHandManager.Instance.StairSellected();
         }
         StairHandManager.Instance.TargetSelect(this);
-        if (GameManager.Instance.quickBattle) 
+        if (GameManager.Instance.quickBattle)
         {
             StairHandManager.Instance.StairSellected();
         }
     }
-    public void Hit(float damage, Unit attacker) 
+    public void Hit(float damage, Unit attacker)
     {
         hp -= damage * attacker.STRength * 0.1f;
         hpBar.HpBarSetting();

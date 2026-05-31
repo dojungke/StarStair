@@ -27,8 +27,6 @@ MonoBehaviour:
     stepDescription: "\uAC80\uC73C\uB85C \uBC34\uB2E4. 10\uC758 \uD53C\uD574\uB97C
       \uC785\uD78C\uB2E4"
     actions:
-    - actionType: 0
-      value: STR/12
     - actionType: 4
       value: 500/50
     - actionType: 2
@@ -43,7 +41,5 @@ MonoBehaviour:
     stepName: "\uC790\uC138 \uB2E4\uC7A1\uAE30"
     stepDescription: "\uC790\uC138\uB97C \uB2E4\uC7A1\uB294\uB2E4."
     actions:
-    - actionType: 0
-      value: STR/12
     - actionType: 2
       value: 1

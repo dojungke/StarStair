@@ -1441,13 +1441,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerUnit
   team: 1
   CONstitution: 10
-  STRength: 14
+  STRength: 15
   DEXterity: 10
   INTelligence: 10
   hp: 100
   quickMoveCount: 0
   hpBar: {fileID: 136826105}
   StairInfoButton: {fileID: 607452322}
+  bonusActionCount: 0
   stairDeck:
   - SwordAttack
   - DoubleSlash
@@ -2443,6 +2444,7 @@ MonoBehaviour:
   quickMoveCount: 0
   hpBar: {fileID: 926179715}
   StairInfoButton: {fileID: 1296712453}
+  bonusActionCount: 0
 --- !u!50 &2120187365
 Rigidbody2D:
   serializedVersion: 5
