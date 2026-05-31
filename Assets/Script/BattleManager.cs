@@ -9,7 +9,7 @@ public class BattleManager : MonoBehaviour
     public List<Unit> UnitList;
     public List<Unit> PlayerUnitList;
     public Unit target;
-    private int actionTime = 0;
+    public int actionTime = 0;
     void Awake()
     {
         if (Instance == null)
@@ -45,32 +45,27 @@ public class BattleManager : MonoBehaviour
     {
         StartCoroutine(WalkStart());
     }
-    public IEnumerator TimeAction(int time) 
+    public void TimeAction(int active)
     {
-        float timeSacle = Time.timeScale;
-        actionTime += time;
-        Time.timeScale *= 2;
-        yield return new WaitForSeconds(time);
-        Time.timeScale = timeSacle;
-        
+        if (active>0)
+        {
+            if (Time.timeScale == 0) return;
+            actionTime += active;
+            Time.timeScale = 2;
+        }
+        else if(active < 0)
+        {
+            actionTime += active;
+            Time.timeScale = 1;
+        }
     }
     IEnumerator WalkStart()
     {
         while (true)
         {
             yield return new WaitForSeconds(1f);
-            if (actionTime <= 0) { NextTurn(); Debug.Log("TimeFlow"); }
-            actionTime -= 1;
+            if (actionTime <= 0) { NextTurn(); Debug.Log($"TimeFlow{actionTime}"); }
+            else { TimeAction(0); }
         }
-    }
-
-    private object WaitForSeconds(float v)
-    {
-        throw new NotImplementedException();
-    }
-
-    private object WaitForSecondsRealtime(float v)
-    {
-        throw new NotImplementedException();
     }
 }

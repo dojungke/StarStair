@@ -21,7 +21,6 @@ public class Stair
             unit.nowStair = null;
             steps.Clear();
             steps = null;
-            return;
         }
         Debug.Log($"{steps[nowStep].content.stepName}, {unit.name} -> {target.name}");
         steps[nowStep].ascend();

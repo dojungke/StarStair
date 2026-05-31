@@ -15,12 +15,6 @@ public class PlayerUnit : Unit
         HandDrow();
         StartCoroutine(Walk());
     }
-
-    private object WaitForSeconds(float v)
-    {
-        throw new System.NotImplementedException();
-    }
-
     public override void StairSelect()
     {
         BattleManager.Instance.TimeStop();
@@ -62,6 +56,7 @@ public abstract class Unit : MonoBehaviour
     public Stair nowStair = null;
     public HpBar hpBar;
     public StairButton StairInfoButton;
+    public int bonusActionCount = 0;
     private void Awake()
     {
         hp = CONstitution * 10;
@@ -82,13 +77,21 @@ public abstract class Unit : MonoBehaviour
         else
         {
             nowStair.ascend();
-            while (quickMoveCount >= 10)
+            if (quickMoveCount >= 10)
             {
-                BattleManager.Instance.StartCoroutine(BattleManager.Instance.TimeAction(1));
-                yield return new WaitForSeconds(1f);
-                quickMoveCount -= 10;
-                if (nowStair == null) { StairSelect(); break; }
-                nowStair.ascend();
+                BattleManager.Instance.TimeAction(1);
+                while (quickMoveCount >= 10)
+                {
+                    if (nowStair == null)
+                    {
+                        StairSelect();
+                    }
+                    yield return new WaitForSeconds(1f);
+                    quickMoveCount -= 10;
+                    if (nowStair == null) { StairSelect(); break; }
+                    nowStair.ascend();
+                }
+                BattleManager.Instance.TimeAction(-1);
             }
         }
     }

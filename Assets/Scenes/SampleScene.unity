@@ -1441,7 +1441,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerUnit
   team: 1
   CONstitution: 10
-  STRength: 10
+  STRength: 14
   DEXterity: 10
   INTelligence: 10
   hp: 100
@@ -1788,6 +1788,7 @@ MonoBehaviour:
   PlayerUnitList:
   - {fileID: 1218189373}
   target: {fileID: 0}
+  actionTime: 0
 --- !u!4 &1533200247
 Transform:
   m_ObjectHideFlags: 0

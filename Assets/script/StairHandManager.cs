@@ -82,7 +82,6 @@ public class StairHandManager : MonoBehaviour
         newStair.stepSetting();
         newStair.unit = caller;
         caller.nowStair = newStair;
-        if (caller.quickMoveCount > 10) { StartCoroutine(caller.Walk()); caller.quickMoveCount -= 10;}
         caller.stairDeck.Remove(selectedStair);
         selectedStair = "";
         Destroy(targetMaker);

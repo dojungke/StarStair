@@ -38,32 +38,32 @@ public class Step
     private void Quick(string condition)
     {
         string[] contents = condition.Split("/");
+
         switch (contents[0])
         {
             case "None":
+                stair.unit.bonusActionCount++;
                 break;
+
             case "STR":
                 if (stair.unit.STRength > int.Parse(contents[1]))
-                    BattleManager.Instance.StartCoroutine(QuickActive());
+                    stair.unit.bonusActionCount++;
                 break;
+
             case "HP":
                 if (stair.unit.CONstitution > int.Parse(contents[1]))
-                    BattleManager.Instance.StartCoroutine(QuickActive());
+                    stair.unit.bonusActionCount++;
                 break;
+
             case "Dex":
                 if (stair.unit.DEXterity > int.Parse(contents[1]))
-                    BattleManager.Instance.StartCoroutine(QuickActive());
+                    stair.unit.bonusActionCount++;
                 break;
+
             case "INT":
                 if (stair.unit.INTelligence > int.Parse(contents[1]))
-                    BattleManager.Instance.StartCoroutine(QuickActive());
+                    stair.unit.bonusActionCount++;
                 break;
         }
-    }
-    IEnumerator QuickActive() 
-    {
-        BattleManager.Instance.StartCoroutine(BattleManager.Instance.TimeAction(1));
-        yield return new WaitForSeconds(1f);
-        stair.unit.nowStair.ascend();
     }
 }

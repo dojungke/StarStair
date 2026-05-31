@@ -17,12 +17,10 @@ public class Enemy2Li : Unit
         StairInfoButton.stairName = nowStair.stairName;
         StairInfoButton.nowStep = 0;
         StairInfoButton.ButtonSetting();
-        if (quickMoveCount >= 10) { quickMoveCount -= 10; StartCoroutine(Walk()); }
     }
     public override void TurnStart()
     {
         base.TurnStart();
         StartCoroutine(Walk());
-
     }
 }
