@@ -1,5 +1,5 @@
+using System.Collections;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class Enemy2Li : Unit
 {
@@ -12,23 +12,17 @@ public class Enemy2Li : Unit
         newStair.unit = this;
         nowStair = newStair;
         newStair.target = BattleManager.Instance.PlayerUnitList[0];
-        newStair.ascend();
+
+        StairInfoButton.gameObject.SetActive(true);
+        StairInfoButton.stairName = nowStair.stairName;
+        StairInfoButton.nowStep = 0;
+        StairInfoButton.ButtonSetting();
+        if (quickMoveCount >= 10) { quickMoveCount -= 10; StartCoroutine(Walk()); }
     }
     public override void TurnStart()
     {
         base.TurnStart();
-        if (nowStair == null)
-        {
-            StairSelect();
-        }
-        else
-        {
-            nowStair.ascend();
-            while (quickMoveCount >= 10)
-            {
-                nowStair.ascend();
-                quickMoveCount -= 10;
-            }
-        }
+        StartCoroutine(Walk());
+
     }
 }

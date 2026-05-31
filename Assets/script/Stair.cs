@@ -14,15 +14,19 @@ public class Stair
     public Unit target;
     public void ascend()
     {
-        Debug.Log($"{steps[nowStep].content.stepName}, {unit.name} -> {target.name}");
-        steps[nowStep].ascend();
         if (nowStep >= steps.Count) //계단 종료
         {
+            unit.StairEnd();
             Debug.Log("계단종료");
             unit.nowStair = null;
             steps.Clear();
             steps = null;
+            return;
         }
+        Debug.Log($"{steps[nowStep].content.stepName}, {unit.name} -> {target.name}");
+        steps[nowStep].ascend();
+        unit.StairInfoButton.nowStep = nowStep;
+        unit.StairInfoButton.StepInfo(0);
     }
     public void stepSetting() 
     {

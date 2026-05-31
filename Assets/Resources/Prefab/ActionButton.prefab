@@ -103,6 +103,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -148,6 +149,7 @@ GameObject:
   - component: {fileID: 1017285665272633257}
   - component: {fileID: 8196012976293856866}
   - component: {fileID: 6080789400540350916}
+  - component: {fileID: 8357151850587313895}
   m_Layer: 5
   m_Name: ActionButton
   m_TagString: Untagged
@@ -257,3 +259,17 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &8357151850587313895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1661276445527628810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9280f1e7ef8d0f84f8c55906ddcc87d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ActionButton
+  ActionImage: {fileID: 8196012976293856866}
+  ActionText: {fileID: 2597720741869299765}

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 2942f38d34db84743bb69e1d623484cf
+guid: 897d49d307b297a4baa8de70aed90fe5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5738211652816306899
-    second: GetManaGuard_0
+      213: 544104916224676396
+    second: Bleeding_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,17 +96,30 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: GetManaGuard_0
+      name: Bleeding_0
       rect:
         serializedVersion: 2
-        x: 39
-        y: 46
-        width: 408
-        height: 418
+        x: 55
+        y: 57
+        width: 371
+        height: 328
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d2d70e377e6cd50b0800000000000000
-      internalID: -5738211652816306899
+      spriteID: c229d1cd98c0d8700800000000000000
+      internalID: 544104916224676396
       vertices: []
       indices: 
       edges: []
@@ -135,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      GetManaGuard_0: -5738211652816306899
+      Bleeding_0: 544104916224676396
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -10,6 +10,7 @@ public class StairHandManager : MonoBehaviour
     public static StairHandManager Instance { get; private set; }
     public GameObject stairButton;
     public GameObject targetMakerPrefab;
+    public GameObject actionButtonPrefab;
     public List<StairButton> stairButtons = new List<StairButton>();
     public PlayerUnit caller;
     public Unit target;
@@ -38,7 +39,7 @@ public class StairHandManager : MonoBehaviour
             StairButton newStairButton = GameObject.Instantiate(stairButton, gameObject.transform).GetComponent<StairButton>();
             newStairButton.stairName = stair;
             stairButtons.Add(newStairButton);
-            newStairButton.buttonSetting();
+            newStairButton.ButtonSetting();
         }
     }
     public void HandReset()
@@ -81,11 +82,14 @@ public class StairHandManager : MonoBehaviour
         newStair.stepSetting();
         newStair.unit = caller;
         caller.nowStair = newStair;
-        caller.StartCoroutine(caller.Walk());
+        if (caller.quickMoveCount > 10) { StartCoroutine(caller.Walk()); caller.quickMoveCount -= 10;}
         caller.stairDeck.Remove(selectedStair);
         selectedStair = "";
         Destroy(targetMaker);
         target = null;
         targetSelectAnounceText.gameObject.SetActive(false);
+        caller.StairInfoButton.gameObject.SetActive(true);
+        caller.StairInfoButton.stairName = caller.nowStair.stairName;
+        caller.StairInfoButton.ButtonSetting();
     }
 }

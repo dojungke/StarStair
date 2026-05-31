@@ -48,8 +48,8 @@ public class BattleManager : MonoBehaviour
     public IEnumerator TimeAction(int time) 
     {
         float timeSacle = Time.timeScale;
-        actionTime = time;
-        Time.timeScale = 2;
+        actionTime += time;
+        Time.timeScale *= 2;
         yield return new WaitForSeconds(time);
         Time.timeScale = timeSacle;
         
@@ -59,7 +59,7 @@ public class BattleManager : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(1f);
-            if (actionTime <= 0) NextTurn();
+            if (actionTime <= 0) { NextTurn(); Debug.Log("TimeFlow"); }
             actionTime -= 1;
         }
     }

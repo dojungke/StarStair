@@ -10,21 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bdef61136d7eeb145ab0f2b67480399a, type: 3}
-  m_Name: SwordAttack
+  m_Name: DoubleSlash
   m_EditorClassIdentifier: Assembly-CSharp::StairData
-  stairName: "\uAC80 \uACF5\uACA9"
+  stairName: "\uC774\uC5F0\uCC38"
   Image: {fileID: 827538889749247048, guid: 4dc60f4d78b919c46b0030c4dda35c9e, type: 3}
   StepInfo:
   - stepType: DummyStep
     stepName: "\uAC80 \uB4E4\uC5B4\uC62C\uB9AC\uAE30"
-    stepDescription: "\uAC80\uC744 \uB4E4\uC5B4\uC62C\uB9B0\uB2E4. \uD798 12\uC774\uC0C1\uC77C\uC2DC
+    stepDescription: "\uAC80\uC744 \uB4E4\uC5B4\uC62C\uB9B0\uB2E4. \uD798 14\uC774\uC0C1\uC77C\uC2DC
       \uC2DC\uAC04 \uC18C\uBAA8 \uC0AD\uC81C"
     actions:
     - actionType: 0
-      value: STR/12
+      value: STR/14
   - stepType: AttackStep
     stepName: "\uBC30\uAE30"
-    stepDescription: "\uAC80\uC73C\uB85C \uBC34\uB2E4. 10\uC758 \uD53C\uD574\uB97C
+    stepDescription: "\uAC80\uC73C\uB85C \uBC34\uB2E4. 8\uC758 \uD53C\uD574\uB97C
       \uC785\uD78C\uB2E4"
     actions:
     - actionType: 4
@@ -36,7 +36,24 @@ MonoBehaviour:
     - actionType: 2
       value: 0.2
     - actionType: 1
-      value: 10
+      value: 8
+    - actionType: 2
+      value: 0.6
+  - stepType: AttackStep
+    stepName: "\uC5F0\uCC38"
+    stepDescription: "\uAC80\uC73C\uB85C \uBC34\uB2E4. 8\uC758 \uD53C\uD574\uB97C
+      \uC785\uD78C\uB2E4"
+    actions:
+    - actionType: 2
+      value: 0.4
+    - actionType: 4
+      value: 100/50
+    - actionType: 3
+      value: Attack
+    - actionType: 1
+      value: 8
+    - actionType: 2
+      value: 0.6
   - stepType: DummyStep
     stepName: "\uC790\uC138 \uB2E4\uC7A1\uAE30"
     stepDescription: "\uC790\uC138\uB97C \uB2E4\uC7A1\uB294\uB2E4."

@@ -17,12 +17,10 @@ public class Step
                     yield return new WaitForSeconds(float.Parse(action.value));
                     break;
                 case ActionType.Quick:
-                    //BattleManager.Instance.StartCoroutine(BattleManager.Instance.TimeAction(1));
-                    //yield return new WaitForSeconds(1f);
-                    //stair.unit.nowStair.ascend();
+                    Quick(action.value);
                     break;
                 case ActionType.SingleAttack:
-                    stair.target.Hit(float.Parse(action.value));
+                    stair.target.Hit(float.Parse(action.value), stair.unit);
                     break;
                 case ActionType.PlayAnimation:
                     stair.unit.GetComponent<Animator>().Play(action.value);
@@ -37,33 +35,35 @@ public class Step
     {
         BattleManager.Instance.StartCoroutine(doActions());
     }
-}
-public class DummyStep : Step 
-{
-    public override void ascend()
+    private void Quick(string condition)
     {
-        stair.nowStep += 1;
-        string[] contents = content.actions[0].value.Split("/");
-        switch (contents[1]) 
+        string[] contents = condition.Split("/");
+        switch (contents[0])
         {
             case "None":
                 break;
             case "STR":
-                if (stair.unit.STRength > int.Parse(contents[2]))
-                    stair.ascend();
+                if (stair.unit.STRength > int.Parse(contents[1]))
+                    BattleManager.Instance.StartCoroutine(QuickActive());
                 break;
             case "HP":
-                if (stair.unit.maxHP > int.Parse(contents[2]))
-                    stair.ascend();
+                if (stair.unit.CONstitution > int.Parse(contents[1]))
+                    BattleManager.Instance.StartCoroutine(QuickActive());
                 break;
             case "Dex":
-                if (stair.unit.DEXterity > int.Parse(contents[2]))
-                    stair.ascend();
+                if (stair.unit.DEXterity > int.Parse(contents[1]))
+                    BattleManager.Instance.StartCoroutine(QuickActive());
                 break;
             case "INT":
-                if(stair.unit.INTelligence > int.Parse(contents[2]))
-                    stair.ascend();
+                if (stair.unit.INTelligence > int.Parse(contents[1]))
+                    BattleManager.Instance.StartCoroutine(QuickActive());
                 break;
         }
+    }
+    IEnumerator QuickActive() 
+    {
+        BattleManager.Instance.StartCoroutine(BattleManager.Instance.TimeAction(1));
+        yield return new WaitForSeconds(1f);
+        stair.unit.nowStair.ascend();
     }
 }
