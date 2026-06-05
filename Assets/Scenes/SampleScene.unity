@@ -1442,7 +1442,7 @@ MonoBehaviour:
   team: 1
   CONstitution: 10
   STRength: 15
-  DEXterity: 10
+  DEXterity: 30
   INTelligence: 10
   hp: 100
   quickMoveCount: 0
@@ -1452,9 +1452,11 @@ MonoBehaviour:
   stairDeck:
   - SwordAttack
   - DoubleSlash
+  - NaturalLight
   stairHand:
   - SwordAttack
   - DoubleSlash
+  - NaturalLight
   usedStair: []
   unUsedStair: []
 --- !u!4 &1218189374 stripped

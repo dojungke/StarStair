@@ -90,6 +90,11 @@ public abstract class Unit : MonoBehaviour
                     else if (bonusActionCount > 0) bonusActionCount -= 1;
                     if (nowStair == null) { StairSelect(); break; }
                     nowStair.ascend();
+                    if (nowStair == null)
+                    {
+                        quickMoveCount += 10;
+                        StairSelect();
+                    }
                     yield return new WaitForSeconds(1f);
                 }
                 BattleManager.Instance.TimeAction(-1);

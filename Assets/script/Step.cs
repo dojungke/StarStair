@@ -16,9 +16,6 @@ public class Step
                 case ActionType.Dummy:
                     yield return new WaitForSeconds(float.Parse(action.value));
                     break;
-                case ActionType.Quick:
-                    Quick(action.value);
-                    break;
                 case ActionType.SingleAttack:
                     stair.target.Hit(float.Parse(action.value), stair.unit);
                     break;
@@ -35,7 +32,7 @@ public class Step
     {
         BattleManager.Instance.StartCoroutine(doActions());
     }
-    private void Quick(string condition)
+    public void Quick(string condition)
     {
         string[] contents = condition.Split("/");
 
@@ -43,22 +40,22 @@ public class Step
         {
             case "STR":
                 if (stair.unit.STRength > int.Parse(contents[1]))
-                    stair.unit.bonusActionCount++;
-                break;
+                    stair.unit.quickMoveCount += 10;
+                    break;
 
             case "HP":
                 if (stair.unit.CONstitution > int.Parse(contents[1]))
-                    stair.unit.bonusActionCount++;
+                    stair.unit.quickMoveCount += 10;
                 break;
 
             case "Dex":
                 if (stair.unit.DEXterity > int.Parse(contents[1]))
-                    stair.unit.bonusActionCount++;
+                    stair.unit.quickMoveCount += 10;
                 break;
 
             case "INT":
                 if (stair.unit.INTelligence > int.Parse(contents[1]))
-                    stair.unit.bonusActionCount++;
+                    stair.unit.quickMoveCount += 10;
                 break;
         }
     }

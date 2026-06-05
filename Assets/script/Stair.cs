@@ -23,6 +23,7 @@ public class Stair
             steps = null;
             return;
         }
+        steps[nowStep].Quick(steps[nowStep].content.quick);
         Debug.Log($"{steps[nowStep].content.stepName}, {unit.name} -> {target.name}");
         steps[nowStep].ascend();
         unit.StairInfoButton.nowStep = nowStep;

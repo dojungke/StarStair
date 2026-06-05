@@ -12,6 +12,7 @@ public struct StepInfo
     public string stepType;
     public string stepName;
     public string stepDescription;
+    public string quick;
     public List<StepAction> actions;
 }
 [Serializable]
